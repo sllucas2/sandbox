@@ -1,0 +1,300 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2021-09-09/uiFormDefinition.schema.json",
+    "view": {
+        "kind": "Form",
+        "properties": {
+            "title": "Test Form View",
+            "steps": [
+                {
+                    "name": "vmConfig",
+                    "label": "Virtual Machine Configuration",
+                    "elements": [
+                        {
+                            "name": "resourceScope",
+                            "type": "Microsoft.Common.ResourceScope",
+                            "location": {
+                                "resourceTypes": [
+                                    "microsoft.resources/resourcegroups"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "virtualMachineName",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Virtual Machine Name",
+                            "subLabel": "",
+                            "defaultValue": "AZTESTSLUCAS01",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": [
+                                    {
+                                        "isValid": "[or(or(empty(steps('vmConfig').virtualMachineName),and(not(startsWith(steps('vmConfig').virtualMachineName,'[[')),startsWith(steps('vmConfig').virtualMachineName,'['),endsWith(steps('vmConfig').virtualMachineName,']'),greater(indexOf(steps('vmConfig').virtualMachineName,'('),-1),greater(indexOf(steps('vmConfig').virtualMachineName,')'),-1))),and(not(regex(steps('vmConfig').virtualMachineName,'^[\\d]+$')),regex(steps('vmConfig').virtualMachineName,'^[a-zA-Z0-9-]+$')))]",
+                                        "message": "Virtual machine name cannot contain non ASCII or special characters, must contain at least one alphabet, and must be between 1 and 15 characters."
+                                    }
+                                ]
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagApplication",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Application",
+                            "subLabel": "",
+                            "defaultValue": "TEST",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagCreatedBy",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Created By",
+                            "subLabel": "",
+                            "defaultValue": "Stephen Lucas",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagCreatedDate",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Created Date",
+                            "subLabel": "",
+                            "defaultValue": "02/02/2024",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagIncident",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Incident",
+                            "subLabel": "",
+                            "defaultValue": "N/A",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagManager",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Manager",
+                            "subLabel": "",
+                            "defaultValue": "Jeff Arnold",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagOwner",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Owner",
+                            "subLabel": "",
+                            "defaultValue": "Stephen Lucas",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "TagSite",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Tag Site",
+                            "subLabel": "",
+                            "defaultValue": "CCI",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "vnetCombo1",
+                            "type": "Microsoft.Network.VirtualNetworkCombo",
+                            "label": {
+                                "virtualNetwork": "VirtualNetwork",
+                                "subnets": "NETSubnetName"
+                            },
+                            "toolTip": {
+                                "virtualNetwork": "",
+                                "subnets": ""
+                            },
+                            "defaultValue": {
+                                "name": "vnet01",
+                                "addressPrefixSize": "/16"
+                            },
+                            "constraints": {
+                                "minAddressPrefixSize": "/16"
+                            },
+                            "options": {
+                                "hideExisting": false
+                            },
+                            "subnets": {
+                                "subnet1": {
+                                    "label": "Subnet",
+                                    "defaultValue": {
+                                        "name": "subnet-1",
+                                        "addressPrefixSize": "/24"
+                                    },
+                                    "constraints": {
+                                        "minAddressPrefixSize": "/24",
+                                        "minAddressCount": 12
+                                    }
+                                }
+                            },
+                            "visible": true
+                        },
+                        {
+                            "name": "virtualNetworkRG",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Virtual Network RG",
+                            "subLabel": "",
+                            "defaultValue": "",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "virtualMachineSize",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Virtual Machine Size",
+                            "defaultValue": "Standard_D4as_v5",
+                            "toolTip": "",
+                            "recommendedSizes": [
+                                "Standard_D4as_v5"
+                            ],
+                            "constraints": {
+                                "required": false,
+                                "allowedSizes": []
+                            },
+                            "imageReference": {
+                                "publisher": "MicrosoftWindowsServer",
+                                "offer": "WindowsServer",
+                                "sku": "2022-datacenter-azure-edition",
+                                "version": "latest"
+                            },
+                            "visible": true,
+                            "scope": {
+                                "subscriptionId": "[steps('vmConfig').resourceScope.subscription.subscriptionId]",
+                                "location": "[steps('vmConfig').resourceScope.location.name]"
+                            }
+                        },
+                        {
+                            "name": "adminUsername",
+                            "type": "Microsoft.Common.TextBox",
+                            "label": "Admin Username",
+                            "subLabel": "",
+                            "defaultValue": "azureadmin",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": false,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": [
+                                    {
+                                        "isValid": "[or(or(empty(steps('vmConfig').adminUsername),and(not(startsWith(steps('vmConfig').adminUsername,'[[')),startsWith(steps('vmConfig').adminUsername,'['),endsWith(steps('vmConfig').adminUsername,']'),greater(indexOf(steps('vmConfig').adminUsername,'('),-1),greater(indexOf(steps('vmConfig').adminUsername,')'),-1))),and(not(regex(steps('vmConfig').adminUsername,'/[\\\\/\\\"\\\"\\[\\]:|<>+=;,$ ?*@]+/')),not(endsWith(steps('vmConfig').adminUsername,'.'))),regex(steps('vmConfig').adminUsername,'^[a-zA-Z0-9-]+$'))]",
+                                        "message": "User name cannot contain special characters \\/\\\"[]:|<>+=;,?*@ or end with '.', and must be between 1 and 15 characters."
+                                    },
+                                    {
+                                        "isValid": "[or(or(empty(steps('vmConfig').adminUsername),and(not(startsWith(steps('vmConfig').adminUsername,'[[')),startsWith(steps('vmConfig').adminUsername,'['),endsWith(steps('vmConfig').adminUsername,']'),greater(indexOf(steps('vmConfig').adminUsername,'('),-1),greater(indexOf(steps('vmConfig').adminUsername,')'),-1))),equals(length(filter(parse('[\"administrator\", \"admin\", \"user\", \"user1\", \"test\", \"user2\", \"test1\", \"user3\", \"admin1\", \"1\", \"123\", \"a\", \"actuser\", \"adm\", \"admin2\", \"aspnet\", \"backup\", \"console\", \"david\", \"guest\", \"john\", \"owner\", \"root\", \"server\", \"sql\", \"support\", \"support_388945a0\", \"sys\", \"test2\", \"test3\", \"user4\", \"user5\"]'),(item) => equals(toLower(item),toLower(steps('vmConfig').adminUsername)))),0))]",
+                                        "message": "The specified username is not allowed. Please choose a different value."
+                                    }
+                                ]
+                            },
+                            "infoMessages": [],
+                            "visible": true
+                        },
+                        {
+                            "name": "adminPassword",
+                            "type": "Microsoft.Common.PasswordBox",
+                            "label": {
+                                "password": "Admin Password",
+                                "confirmPassword": "Confirm password"
+                            },
+                            "defaultValue": "GVWp?vt8g#WW*R@",
+                            "toolTip": "",
+                            "constraints": {
+                                "required": true,
+                                "regex": "",
+                                "validationMessage": "",
+                                "validations": []
+                            },
+                            "options": {
+                                "hideConfirmation": true
+                            },
+                            "visible": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "outputs": {
+            "kind": "ResourceGroup",
+            "location": "[steps('vmConfig').resourceScope.location.name]",
+            "resourceGroupId": "[steps('vmConfig').resourceScope.resourceGroup.id]",
+            "parameters": {
+                "virtualMachineName": "[steps('vmConfig').virtualMachineName]",
+                "TagApplication": "[steps('vmConfig').TagApplication]",
+                "TagCreatedBy": "[steps('vmConfig').TagCreatedBy]",
+                "TagCreatedDate": "[steps('vmConfig').TagCreatedDate]",
+                "TagIncident": "[steps('vmConfig').TagIncident]",
+                "TagManager": "[steps('vmConfig').TagManager]",
+                "TagOwner": "[steps('vmConfig').TagOwner]",
+                "TagSite": "[steps('vmConfig').TagSite]",
+                "virtualNetworkRG": "[steps('vmConfig').virtualNetworkRG",
+                "virtualMachineSize": "[steps('vmConfig').virtualMachineSize]",
+                "adminUsername": "[steps('vmConfig').adminUsername]",
+                "adminPassword": "[steps('vmConfig').adminPassword]"
+            }
+        }
+    }
+}
