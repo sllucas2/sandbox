@@ -260,7 +260,7 @@
                                 "password": "Admin Password",
                                 "confirmPassword": "Confirm password"
                             },
-                            "defaultValue": "GVWp?vt8g#WW*R@",
+                            "defaultValue": "",
                             "toolTip": "",
                             "constraints": {
                                 "required": true,
